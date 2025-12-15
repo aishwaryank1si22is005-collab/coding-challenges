@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Select Services</title>
+</head>
+<body>
+
+<h2>HealWell Care Hospital</h2>
+<h3>Select Services for Patient</h3>
+
+<form method="post">
+
+    {% for service in services %}
+        <input type="checkbox" name="services" value="{{ service }}">
+        {{ service }}<br>
+    {% endfor %}
+
+    <br>
+    <button type="submit">Proceed to Billing</button>
+
+</form>
+
+<br>
+<a href="{{ url_for('patient') }}">Back to Patient Details</a> |
+<a href="{{ url_for('logout') }}">Logout</a>
+
+</body>
+</html>
