@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Details</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+
+    <h2>HealWell Care Hospital</h2>
+    <h3>Enter Patient Details</h3>
+
+    <form method="post">
+
+        <label>Patient Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Age:</label><br>
+        <input type="number" name="age" required><br><br>
+
+        <label>Gender:</label><br>
+        <select name="gender" required>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <label>Contact Number:</label><br>
+        <input type="text"
+               name="contact"
+               pattern="[6-9][0-9]{9}"
+               required><br><br>
+
+        <button type="submit">Proceed to Service Selection</button>
+
+    </form>
+
+    <!-- Backend validation error -->
+    <p class="error">{{ error }}</p>
+
+    <br>
+    <a href="/add-services">Back to Services</a> |
+    <a href="/logout">Logout</a>
+
+</div>
+</body>
+</html>
